@@ -1,7 +1,8 @@
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
-public class Ex2_2_5{
+public class HelloWorld {
     public static void main(String[] args) {
         String strNum1 = JOptionPane.showInputDialog(null, 
                 "Please input the first number:", "Input", JOptionPane.INFORMATION_MESSAGE);
