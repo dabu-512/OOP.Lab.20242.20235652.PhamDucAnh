@@ -1,0 +1,13 @@
+Is JAVA a Pass by Value or a Pass by Reference programming language? 
+- After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two objects still remain? :
++ Khi gọi swap(jungleDVD, cinderellaDVD), o1 và o2 là bản sao tham chiếu đến hai đối tượng jungleDVD và cinderellaDVD, chứ không phải bản thân hai đối tượng đó.
++ Trong hàm swap,khi gán o1 = o2; o2 = tmp; về mặt logic thì d1 và d2 đã hoán đổi, nhưng đây chỉ là hoán đổi trên các bản sao tham chiếu cục bộ. 
++ Sau khi phương thức swap kết thúc, các biến cục bộ d1, d2, tmp bị hủy, không ảnh hưởng đến biến jungleDVD và cinderellaDVD ngoài main.
+ => Kết quả là tiêu đề của jungleDVD và cinderellaDVD không đổi.
+- After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is the title of the JungleDVD changed?
++ Đầu tiên, biến oldTitle lưu tiêu đề ban đầu của dvd.
++ Gọi dvd.setTitle(title) thực chất là thay đổi thuộc tính title bên trong đối tượng mà dvd đang tham chiếu tới.
++  Vì dvd (trong hàm) và jungleDVD (ngoài hàm) cùng trỏ đến một đối tượng trên bộ nhớ, nên khi  gọi setTitle, đối tượng đó thay đổi trạng thái.
+=> Kết quả là tiêu đề của jungleDVD và cinderellaDVD không đổi.
+Tóm lại, setTitle() thay đổi dữ liệu bên trong đối tượng mà dvd đang tham chiếu đến.
+Vậy nên Java là truyền tham trị chứ không phải truyền tham chiếu.
