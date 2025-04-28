@@ -1,0 +1,37 @@
+1. What class should implement the Comparable interface?
+Class Media nên implements Comparable<Media>.
+Vì cần sắp xếp các đối tượng Media trong Cart (DVD, CD, Book đều là Media).Do đó, Media phải hỗ trợ compareTo() để cho phép Collections.sort() sắp xếp chung.
+
+2. In those classes, how should you implement the compareTo() method to reflect the ordering that we want?
+Trong Media, ta có thể override compareTo() như sau:
+@Override
+public int compareTo(Media other) {
+    int titleCompare = this.title.compareToIgnoreCase(other.title);
+    if (titleCompare != 0) {
+        return titleCompare;
+    } else {
+        return Float.compare(other.cost, this.cost);
+    }
+}
+
+3. Can we have two ordering rules (by title then cost and by cost then title) if we use Comparable interface approach?
+Không, nếu chỉ dùng Comparable thì chỉ có 1 quy tắc duy nhất (do compareTo() chỉ override 1 lần). Comparable là để định nghĩa natural order (thứ tự tự nhiên). Nhưng nếu ta muốn nhiều cách sắp xếp khác nhau (ví dụ: lúc sort theo title, lúc sort theo cost) ➔ bắt buộc dùng Comparator.
+
+4. Suppose DVDs have a different ordering rule from the other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this?
+Có thể Override như sau :
+@Override
+public int compareTo(Media other) {
+    if (other instanceof DigitalVideoDisc) {
+        DigitalVideoDisc otherDvd = (DigitalVideoDisc) other;
+        int titleCompare = this.getTitle().compareToIgnoreCase(otherDvd.getTitle());
+        if (titleCompare != 0) {
+            return titleCompare;
+        }
+        int lengthCompare = Integer.compare(otherDvd.getLength(), this.getLength());
+        if (lengthCompare != 0) {
+            return lengthCompare;
+        }
+        return Float.compare(otherDvd.getCost(), this.getCost());
+    }
+    return super.compareTo(other);
+}
