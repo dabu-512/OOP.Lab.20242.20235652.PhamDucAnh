@@ -1,0 +1,37 @@
+Reading Assignment:  Please answer three questions below:
+	-What are the advantages of Polymorphism?
+	-How is Inheritance useful to achieve Polymorphism in Java?
+	-What are the differences between Polymorphism and Inheritance in Java?
+
+1. What are the advantages of Polymorphism? ( Lợi ích của tính đa hình)
+- Tính đa hình giúp tạo ra mã nguồn linh hoạt và dễ bảo trì. Nó cho phép ta viết các phương thức chung mà có thể sử dụng trên nhiều lớp khác nhau, giúp giảm sự lặp lại mã và tạo ra mã nguồn để mở rộng. 
+- Lợi ích của tính đa hình : 
++ Tái sử dụng mã nguồn : có thể sử dụng lại mã nguồn của các phương thức chung trên nhiều lớp con. 
++ Mã nguồn linh hoạt : Tính đa hình cho phép ta thay đổi hành vi của các đối tượng mà không cần thay đổi mã nguồn của các lớp khác.
++ Tạo cấu trúc phân cấp : Bằng cách sử dụng tính đa hình, ta có thể tạo ra các cấu trúc phân cấp cho các đối tượng trong ứng dụng, làm cho mã nguồn trở nên dễ bảo trì hơn. 
+Cụ thể trong project, khi gọi 2 phương thức toString() và play(), Java tự động biết phải gọi phiên bản toString() và play() đúng với từng loại ( DigitalVideoDisc, CompactDisc, Track).
+Hoặc là 2 Comparator này so sánh mọi đối tượng Media, không cần biết đó là Book, DVD hay CD
+public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
+public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
+
+2. How is Inheritance useful to achieve Polymorphism in Java? ( Thừa kế giúp đạt được Đa hình như thế nào)
+- Tính kế thừa tạo mối quan hệ Một lớp con là một phiên bản chuyên biệt của lớp cha, do đó có thể được sử dụng ở bất kỳ đâu mà lớp cha được yêu cầu.
+ - Override phương thức: Lớp con có thể ghi đè các phương thức của lớp cha để cung cấp cách thực thi riêng biệt. Khi gọi phương thức trên đối tượng bằng kiểu tham chiếu lớp cha, thực tế phương thức lớp con sẽ được thực thi.
+ -Tạo tính linh hoạt: Giúp cho một đối tượng có thể có nhiều hình thái trong lúc chạy.
+Book, Disc, CompactDisc, DigitalVideoDisc đều kế thừa từ Media :
+- Phương thức play() được override riêng trong CompactDisc, DigitalVideoDisc. Và khi gọi media.play() thì java tự động gọi đúng play() phiên bản của class tương ứng.
+
+
+3. What are the differences between Polymorphism and Inheritance in Java? (Sự khác nhau giữa đa hình và Thừa kế)
+	Thừa kế 					Đa hình
+- Một class kế thừa thuộc tính 		- Một đối tượng có thể có nhiều hình thái
+và phương thức từ class khác
+
+- Tăng tính linh hoạt trong cách gọi 	- Tái sử dụng mã, giảm sự lặp lại và tổ chức mối quan hệ
+và xử lý đối tượng			giữa các lớp
+
+- Xảy ra khi sử dụng phương thức	- Xảy ra khi một lớp sử dụng extends hoặc implements
+override hoặc interface
+
+-Mối quan hệ cha – con giữa các		- Nhiều lớp con được xử lý như cùng 1 loại
+class		
