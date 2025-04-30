@@ -34,4 +34,27 @@ và xử lý đối tượng			giữa các lớp
 override hoặc interface
 
 -Mối quan hệ cha – con giữa các		- Nhiều lớp con được xử lý như cùng 1 loại
-class		
+class	
+
+
+
+
+So sánh xử lý xâu :
+- Môi trường : 
++ IDE: Eclipse IDE for JAVA Develops
++ Java version : openjdk version "21.0.6" 2025-01-21 LTS  
+		OpenJDK Runtime Environment Temurin-21.0.6+7 (build 21.0.6+7-LTS)  
+		OpenJDK 64-Bit Server VM Temurin-21.0.6+7-LTS 	
+- Máy tính : 
++ASUS Vivobook X1505VA
++ CPU: Intel Core i7-13700H (13th Gen, 20 CPUs), ~2.4GHz
++ RAM: 16GB
++ Hệ điều hành: Windows 11 Home Single Language 64-bit (Build 26100)
+- Kết quả chạy : 
+Using '+' took: 359 ms
+Using StringBuilder took: 1 ms
+Using StringBuffer took: 2 ms
+- Nhật xét : 
++ Toán tử "+" có hiệu năng kém khi xử lý chuỗi nhiều lần trong vòng lặp do mỗi lần nó phải tạo ra một đối tượng String mới dẫn đến gây ra nhiều rác trong bộ nhớ và tăng thời gian xử lý.
++ StringBuilder(không đồng bộ) tức là luồng không an toàn. Điều này có nghĩa là có 2 luồng cùng truy cập phương thức của lớp StringBuilder đồng thời. mỗi lần nối là thay đổi chính nội dung bộ nhớ nên là xử lý rất nhanh, không tạo ra nhiều đối tượng tạm, và có hiệu năng cao nhất trong 3 cách
++ StringBuffer (đồng bộ) tức là luồng an toàn. Điều này có nghĩa là không thể có 2 luồng cùng truy cập phương thức của lớp StringBuffer đồng thời. Nhiều luồng có thể truy cập vào một đối tượng StringBuffer cùng lúc, trong khi đó StringBuilder có các phương thức tương tự nhưng không được đồng bộ, vì vậy mà hiệu suất của nó cao hơn
