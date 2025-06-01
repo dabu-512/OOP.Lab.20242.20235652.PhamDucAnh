@@ -10,7 +10,7 @@ public class MediaStore extends JPanel {
     private Media media;
 
     public MediaStore(Media media) {
-        this.media = media;
+        this.setMedia(media);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         JLabel title = new JLabel(media.getTitle());
@@ -35,7 +35,7 @@ public class MediaStore extends JPanel {
                 playDialog.setTitle("Playing " + media.getTitle());
                 playDialog.setSize(300, 200);
                 playDialog.setLocationRelativeTo(null); // Center the dialog
-
+ 
                 // Thêm một JLabel để hiển thị thông tin hoặc điều khiển phát
                 JLabel playingLabel = new JLabel("Now playing: " + media.getTitle());
                 playingLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -64,4 +64,12 @@ public class MediaStore extends JPanel {
 
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
+
+	public Media getMedia() {
+		return media;
+	}
+
+	public void setMedia(Media media) {
+		this.media = media;
+	}
 }

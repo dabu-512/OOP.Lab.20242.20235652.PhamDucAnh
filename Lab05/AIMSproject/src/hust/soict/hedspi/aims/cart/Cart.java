@@ -1,24 +1,26 @@
 package hust.soict.hedspi.aims.cart;
 import java.util.Collections;
-
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import hust.soict.hedspi.aims.exception.LimitExceededException;
 import hust.soict.hedspi.aims.media.Media;
 
-import java.util.ArrayList;
+
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
-    private ArrayList<Media> itemsOrdered = new ArrayList<>();
+    private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
 
-    public ArrayList<Media> getItemsOrdered() {
+    public ObservableList<Media> getItemsOrdered() {
         return itemsOrdered;
     }
-    public void addMedia(Media media) {
+    public void addMedia(Media media) throws LimitExceededException { 
     	if (!itemsOrdered.contains(media)) {
     		if (itemsOrdered.size() < MAX_NUMBERS_ORDERED ) {
     			itemsOrdered.add(media);
     			System.out.println("Add this media to the cart");
     		}
     		else {
-    			System.out.println("The cart is full");
+    			throw new LimitExceededException("ERROR: The cart is full.");
     		}
     	}
     	else {

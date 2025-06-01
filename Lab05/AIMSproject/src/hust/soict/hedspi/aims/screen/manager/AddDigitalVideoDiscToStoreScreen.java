@@ -22,7 +22,7 @@ public class AddDigitalVideoDiscToStoreScreen extends AddItemToStoreScreen {
         tfLength = new JTextField(20);
         add(tfLength);
 
-        add(new JLabel(""));
+        add(new JLabel("")); 
         btnAdd = new JButton("Add DVD");
         btnAdd.addActionListener(new ButtonListener());
         add(btnAdd);
@@ -32,14 +32,13 @@ public class AddDigitalVideoDiscToStoreScreen extends AddItemToStoreScreen {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-            	int id = Integer.parseInt(tfId.getText().trim());
                 String title = tfTitle.getText().trim();
                 String category = tfCategory.getText().trim();
                 String director = tfDirector.getText().trim();
                 int length = Integer.parseInt(tfLength.getText().trim());
                 float cost = parseCost(); // parseCost() lấy từ AddItemToStoreScreen
 
-                DigitalVideoDisc dvd = new DigitalVideoDisc(id, title, category, cost, director, length);
+                DigitalVideoDisc dvd = new DigitalVideoDisc(title, category, cost, director, length);
                 store.addMedia(dvd);
 
                 JOptionPane.showMessageDialog(null, "DVD added successfully!");

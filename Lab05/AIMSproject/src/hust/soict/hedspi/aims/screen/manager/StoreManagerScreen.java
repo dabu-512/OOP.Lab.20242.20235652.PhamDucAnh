@@ -42,13 +42,13 @@ public class StoreManagerScreen extends JFrame {
         header.add(Box.createHorizontalGlue());
 
         return header;
-    }
+    } 
 
     private JPanel createCenter() {
         JPanel center = new JPanel();
         center.setLayout(new GridLayout(3, 3, 2, 2)); // 3x3 grid
 
-        for (Media media : store.getItemsInStore()) {
+        for (Media media : store.getMediaInStore()) {
             MediaStore cell = new MediaStore(media);
             center.add(cell);
         }

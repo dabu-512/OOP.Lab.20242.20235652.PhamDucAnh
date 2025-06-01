@@ -11,8 +11,7 @@ public class AddBookToStoreScreen extends AddItemToStoreScreen {
     private JButton btnAdd;
 
     public AddBookToStoreScreen(Store store) {
-        super(store);
-
+        super(store); 
         btnAdd = new JButton("Add Book");
         btnAdd.addActionListener(new ButtonListener());
         add(new JLabel("")); // placeholder

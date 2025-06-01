@@ -22,7 +22,7 @@ public abstract class AddItemToStoreScreen extends JFrame {
         add(tfTitle);
 
         add(new JLabel("Category:"));
-        tfCategory = new JTextField(20);
+        tfCategory = new JTextField(20); 
         add(tfCategory);
 
         add(new JLabel("Cost:"));

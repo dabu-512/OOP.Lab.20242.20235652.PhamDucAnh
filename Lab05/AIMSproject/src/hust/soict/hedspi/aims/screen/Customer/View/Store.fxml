@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <padding>
       <Insets left="20.0" />
@@ -35,7 +34,7 @@
             </Button>
          </children>
       </HBox>
-      <ScrollPane prefHeight="760.0" prefWidth="1024.0">
+      <ScrollPane prefHeight="671.0" prefWidth="945.0">
          <content>
             <GridPane fx:id="gridPane" prefHeight="0.0">
               <rowConstraints>
@@ -43,6 +42,9 @@
               </rowConstraints>
             </GridPane>
          </content>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
       </ScrollPane>
    </children>
 </VBox>

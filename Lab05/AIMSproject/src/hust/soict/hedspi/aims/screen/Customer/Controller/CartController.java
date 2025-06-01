@@ -131,7 +131,7 @@ public class CartController {
 
     private void showFilteredMedia(String filter) {
         if (filter == null || filter.trim().isEmpty()) {
-            tblMedia.setItems(observableMediaList); // Hiện lại toàn bộ
+            tblMedia.setItems(observableMediaList); 
             return;
         }
 

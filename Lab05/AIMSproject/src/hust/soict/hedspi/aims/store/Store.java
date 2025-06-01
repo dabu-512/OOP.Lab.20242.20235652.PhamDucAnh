@@ -1,10 +1,15 @@
 package hust.soict.hedspi.aims.store;
+import hust.soict.hedspi.aims.media.Playable;
 import java.util.ArrayList;
 
 import hust.soict.hedspi.aims.media.Media;
 public class Store {
 	public static final int MAX_ITEMS = 100;
     private ArrayList<Media> itemsOrdered = new ArrayList<>();    
+    
+    public ArrayList<Media> getMediaInStore() {
+        return itemsOrdered;
+    }
     public void addMedia(Media media) {
     	if (itemsOrdered.size() < MAX_ITEMS) {
     		itemsOrdered.add(media);
@@ -71,6 +76,19 @@ public class Store {
         }
         System.out.println("--------------------------------------");
     }
+    public void playMedia(Media media) {
+        if (media == null) {
+            System.err.println("Error: Media to play cannot be null.");
+            return;
+        }
+        
+        if (media instanceof Playable) {
+            ((Playable) media).play();
+        } else {
+            System.out.println("Error: This media '" + media.getTitle() + "' cannot be played.");
+        }
+    }
+    
 }
 
 

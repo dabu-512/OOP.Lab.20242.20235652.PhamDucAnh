@@ -14,7 +14,7 @@ public class AddCompactDiscToStoreScreen extends AddItemToStoreScreen {
     public AddCompactDiscToStoreScreen(Store store) {
         super(store);
         
-        add(new JLabel("Director:"));
+        add(new JLabel("Director:")); 
         tfDirector = new JTextField(20);
         add(tfDirector);
 
@@ -36,7 +36,6 @@ public class AddCompactDiscToStoreScreen extends AddItemToStoreScreen {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-            	int id = Integer.parseInt(tfId.getText().trim());
                 String title = tfTitle.getText().trim();
                 String category = tfCategory.getText().trim();
                 String director = tfDirector.getText().trim();
@@ -44,7 +43,7 @@ public class AddCompactDiscToStoreScreen extends AddItemToStoreScreen {
                 float cost = parseCost();
                 int length = Integer.parseInt(tfLength.getText().trim());
 
-                CompactDisc cd = new CompactDisc(id,title, category, cost, director, length, artist);
+                CompactDisc cd = new CompactDisc(title, category, cost, director, length, artist);
                 store.addMedia(cd);
 
                 JOptionPane.showMessageDialog(null, "CD added successfully!");
