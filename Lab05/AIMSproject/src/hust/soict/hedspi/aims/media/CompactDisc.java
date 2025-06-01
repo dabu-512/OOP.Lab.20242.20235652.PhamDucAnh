@@ -1,18 +1,22 @@
 package hust.soict.hedspi.aims.media;
+
 import java.util.ArrayList;
-public class CompactDisc extends Disc implements Playable{
-	private String artist;
-	private ArrayList<Track> tracks = new ArrayList<>();
-	public CompactDisc(int id, String title, String category, float cost,
-							String director, int length, String artist) {
-		super(id, title, category,cost, director, length);
-		this.artist = artist;
-		this.tracks = new ArrayList<>();
-	}
-	public String getArtist() {
-		return artist;
-	}
-	public void addTrack(Track track) {
+
+public class CompactDisc extends Disc implements Playable {
+    private String artist;
+    private ArrayList<Track> tracks = new ArrayList<>();
+
+    public CompactDisc(String title, String category, float cost,
+                       String director, int length, String artist) {
+        super(title, category, cost, director, length);
+        this.artist = artist;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
+
+    public void addTrack(Track track) {
         if (tracks.contains(track)) {
             System.out.println("Track already exists.");
         } else {
@@ -20,7 +24,7 @@ public class CompactDisc extends Disc implements Playable{
             System.out.println("Track added.");
         }
     }
-	
+
     public void removeTrack(Track track) {
         if (tracks.contains(track)) {
             tracks.remove(track);
@@ -38,23 +42,23 @@ public class CompactDisc extends Disc implements Playable{
         }
         return totalLength;
     }
-    
-    @Override 
+
+    @Override
     public void play() {
-    	System.out.println("Playing CD: " + this.getTitle());
-    	System.out.println("CD Artist: " + this.getArtist());
-    	System.out.println("CD length: " + this.getLength());
-    	for (Track track : tracks) {
-    		track.play();
-    	}
+        System.out.println("Playing CD: " + this.getTitle());
+        System.out.println("CD Artist: " + this.getArtist());
+        System.out.println("CD length: " + this.getLength());
+        for (Track track : tracks) {
+            track.play();
+        }
     }
-    
-    @Override 
+
+    @Override
     public String toString() {
-		return "CD: " + this.getTitle() +
-				", category : " + this.getCategory() +
-				", artist : " + this.getArtist() +
-				", length : " + this.getLength() +
-				", cost : " + this.getCost();
-	}
+        return "CD: " + this.getTitle() +
+               ", category : " + this.getCategory() +
+               ", artist : " + this.getArtist() +
+               ", length : " + this.getLength() +
+               ", cost : " + this.getCost();
+    }
 }
